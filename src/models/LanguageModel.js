@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const LinguagemSchema = new Schema({
-    nome: {
+const LanguageSchema = new Schema({
+    name: {
         type: String,
         required : true
     }
 })
 
-module.exports = mongoose.model('Linguagem',LinguagemSchema)
+module.exports = mongoose.model('Language',LanguageSchema)

@@ -2,26 +2,26 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const SubmissionSchema = new Schema({
-    codigoInput:{
+    codeInput :{
         type:String,
         required:true
     },
-    resultado: {
+    result : {
         type : String,
         required:true
     },
-    erro : {
+    error : {
         type : String,
         required: true
     },
-    id_problema : {
+    id_problem : {
         type: Schema.Types.ObjectId,
         required: true
     },
-    id_linguagem : {
+    id_language : {
         type: Schema.Types.ObjectId,
         required: true
     }
 })
 
-module.exports = mongoose.model('Submissao',SubmissionSchema)
+module.exports = mongoose.model('Submission',SubmissionSchema)
