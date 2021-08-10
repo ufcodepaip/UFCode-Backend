@@ -1,18 +1,11 @@
-const express = require("express")
-const app = express()
-var cors = require("cors")
-const language = require("./src/routers/LanguageRouter")
+const http = require('http')
 
-require("dotenv").config()
-require("./config/database")
+const app = require('./config/express')()
+const db = require("./config/database.js")
+require('dotenv').config()
 
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json())
-app.use(cors())
+http.createServer(app).listen(app.get('port'), 
+    ()=> console.log("Express Server executed in port: " + app.get('port'))
+)
 
-app.use("/language",language)
-app.use("/newlanguage,",language)
-
-app.listen(process.env.PORT, ()=> {
-    console.log(`Express Server executed in port:  ${process.env.PORT}`)
-})
+db(process.env.DB_URI)
