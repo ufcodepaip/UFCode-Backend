@@ -16,4 +16,9 @@ router.delete("/:id", async(req, res) => {
     languageController.deleteLanguage(req,res)
 })
 
+//Update Language By ID
+router.put("/:id", async(req,res) => {
+    languageController.updateLanguage(req,res)
+})
+
 module.exports = router
