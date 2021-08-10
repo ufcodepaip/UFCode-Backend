@@ -1,4 +1,5 @@
 const Language = require("../models/LanguageModel")
+const {getManyLang} = require("../view/LanguageView")
 require("../../config/database")
 
 //Create a new language
@@ -15,8 +16,8 @@ const  newLanguage = async(req,res) =>{
 // Get all language
 const getAllLanguages = async(req, res) => {
     try{
-        const languages  = await Language.find()
-        res.status(200).json(languages)
+        let languages  = await Language.find()
+        res.status(200).json(getManyLang(languages))
     }catch(err){
         res.status(500).json(err)
     }
