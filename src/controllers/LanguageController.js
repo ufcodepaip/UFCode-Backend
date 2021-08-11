@@ -6,8 +6,8 @@ require("../../config/database")
 const  newLanguage = async(req,res) =>{
     const newlang = new Language(req.body)
     try{
-        const langsalved = await newlang.save()
-        res.status(200).json(langsalved)
+        const langsaved = await newlang.save()
+        res.status(200).json(langsaved)
     }catch(err) {
         res.status(500).json(err)
     }
