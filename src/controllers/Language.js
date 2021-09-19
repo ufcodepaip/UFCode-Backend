@@ -1,5 +1,5 @@
-const Language = require("../models/LanguageModel")
-const {getManyLang} = require("../view/LanguageView")
+const Language = require("../models/Language")
+const {getManyLang} = require("../views/Language")
 require("../../config/database")
 
 //Create a new language

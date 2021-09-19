@@ -16,11 +16,11 @@ const SubmissionSchema = new Schema({
     },
     id_problem : {
         type: Schema.Types.ObjectId,
-        required: true
+        ref: 'Problem'
     },
     id_language : {
         type: Schema.Types.ObjectId,
-        required: true
+        ref: 'Language'
     }
 })
 

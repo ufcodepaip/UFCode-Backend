@@ -1,5 +1,5 @@
-const Submission = require("../models/SubmissionModel")
-const {getManySubmission} = require("../view/SubmissionView")
+const Submission = require("../models/Submission")
+const {getManySubmission} = require("../views/Submission")
 require("../../config/database")
 
 //Create a new Submission
