@@ -1,4 +1,6 @@
 let express = require('express')
+const language = require("./../src/routers/LanguageRouter")
+const submission = require("./../src/routers/SubmissionRouter")
 
 let difficultyRouter = require("../app/routers/Difficulty")
 let houseRouter = require("../app/routers/house")
@@ -25,6 +27,9 @@ module.exports = function() {
     difficultyRouter(app)
     houseRouter(app)
     problemRouter(app)
+
+    app.use("/language",language)
+    app.use("/submission",submission)
 
     courseRouter(app)
     moduleRouter(app)
