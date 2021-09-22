@@ -6,7 +6,9 @@ const render = (problem) => {
         input: problem.input,
         expectedOutput: problem.expectedOutput,
         houseId: problem.id_house,
-        difficultyId: problem.id_difficulty
+        difficultyId: problem.id_difficulty,
+        courses: problem.courses,
+        modules: problem.modules
     }
 }
 

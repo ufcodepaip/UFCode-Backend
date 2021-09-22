@@ -35,7 +35,6 @@ module.exports.findDifficulty = (req, res) => {
     )
 }
 
-
 module.exports.deleteDifficulty = (req, res) => {
     let id = req.params.id
     let promise = DifficultyModel.findByIdAndDelete(id).exec()

@@ -1,57 +1,47 @@
-const Submission = require("../models/Submission")
-const {getManySubmission} = require("../views/Submission")
-require("../../config/database")
+const SubmissionModel = require('../models/Submission')
+const view = require('../views/Submission')
 
-//Create a new Submission
-const newSubmission = async(req,res) => {
-    const newSub = new Submission(req.body)
-    try{
-        const subsaved = await newSub.save()
-        res.status(200).json(subsaved)
-    }catch(err) {
-        res.status(500).json(err)
-    }
+module.exports.createSubmission = (req, res) => {
+    let Submission = req.body
+    let promise = SubmissionModel.create(Submission)
+        
+    promise.then((Submission)=>{
+        res.status(201).json(view.render(Submission))
+    }).catch((error)=>{
+        res.status(400).json({message: error})
+    })
 }
 
-//Get all Submission
-const getAllSubmissions = async(req,res) => {
-    try{
-        let subs = await Submission.find()
-        res.status(200).json(getManySubmission(subs))
-    }catch(err) {
-        res.status(500).json(err)
-    }
+module.exports.listSubmission = (req, res) => {
+    let promise = SubmissionModel.find().exec()
+
+    promise.then((Submission)=>{
+        res.status(200).json(view.renderMany(Submission))
+    }).catch((error)=>{
+        res.status(400).json({message: "error message", error: error})
+    })
 }
 
+module.exports.findSubmission = (req, res) => {
+    let id = req.params.id
+    let promise = SubmissionModel.findById(id).exec()
 
-//Delete Submission
-const deleteSubmission = async(req,res) => {
-    try{
-        const submission = await Submission.findById(req.params.id)
-        await submission.delete()
-        res.status(200).json("The submission has benn deleted")
-    }catch(err) {
-        res.status(500).json(err)
-    }
+    promise.then((Submission)=>{
+        res.status(200).json(view.render(Submission))
+    }).catch((error)=>{
+            res.status(404).json({message: "Submission not found", error: error})
+        }
+    )
 }
 
-//Update Submission
-const updateSubmission = async(req,res) => {
-    try{
-        const updateSub = await Submission.findByIdAndUpdate(
-            req.params.id, {$set: req.body}, {new: true}
-        )
-        res.status(200).json(updateSub)
-    }catch(err){
-        res.status(500).json(err)
-    }
-}
+module.exports.deleteSubmission = (req, res) => {
+    let id = req.params.id
+    let promise = SubmissionModel.findByIdAndDelete(id).exec()
 
-const submissionController = {
-    newSubmission,
-    getAllSubmissions,
-    deleteSubmission,
-    updateSubmission
+    promise.then((Submission)=>{
+        res.status(200).json(view.render(Submission))
+    }).catch((error)=>{
+            res.status(400).json({message: "Submission not found", error: error})
+        }
+    )
 }
-
-module.exports = {submissionController}

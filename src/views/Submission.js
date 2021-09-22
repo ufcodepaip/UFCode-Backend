@@ -1,4 +1,4 @@
-const getSub = (submission) => {
+const render = (submission) => {
     return {
         id: submission._id,
         codeInput : submission.codeInput,
@@ -9,8 +9,8 @@ const getSub = (submission) => {
     }
 }
 
-const getManySubmission = (submission) => {
-    return submission.map((submission) => getSub(submission))
+const renderMany = (submission) => {
+    return submission.map((submission) => render(submission))
 }
-
-module.exports = { getSub, getManySubmission }
+module.exports.render = render
+module.exports.renderMany = renderMany

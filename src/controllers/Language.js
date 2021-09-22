@@ -1,56 +1,47 @@
-const Language = require("../models/Language")
-const {getManyLang} = require("../views/Language")
-require("../../config/database")
+const LanguageModel = require('../models/Language')
+const view = require('../views/Language')
 
-//Create a new language
-const  newLanguage = async(req,res) =>{
-    const newlang = new Language(req.body)
-    try{
-        const langsaved = await newlang.save()
-        res.status(200).json(langsaved)
-    }catch(err) {
-        res.status(500).json(err)
-    }
+module.exports.createLanguage = (req, res) => {
+    let Language = req.body
+    let promise = LanguageModel.create(Language)
+        
+    promise.then((Language)=>{
+        res.status(201).json(view.render(Language))
+    }).catch((error)=>{
+        res.status(400).json({message: error})
+    })
 }
 
-// Get all language
-const getAllLanguages = async(req, res) => {
-    try{
-        let languages  = await Language.find()
-        res.status(200).json(getManyLang(languages))
-    }catch(err){
-        res.status(500).json(err)
-    }
+module.exports.listLanguage = (req, res) => {
+    let promise = LanguageModel.find().exec()
+
+    promise.then((Language)=>{
+        res.status(200).json(view.renderMany(Language))
+    }).catch((error)=>{
+        res.status(400).json({message: "error message", error: error})
+    })
 }
 
-//Delete language
-const deleteLanguage = async(req,res) => {
-    try{
-        const language = await Language.findById(req.params.id)
-        await language.delete()
-        res.status(200).json("The language has been deleted")
-    }catch(err) {
-        res.status(500).json(err)
-    }
+module.exports.findLanguage = (req, res) => {
+    let id = req.params.id
+    let promise = LanguageModel.findById(id).exec()
+
+    promise.then((Language)=>{
+        res.status(200).json(view.render(Language))
+    }).catch((error)=>{
+            res.status(404).json({message: "Language not found", error: error})
+        }
+    )
 }
 
-//Update language
-const updateLanguage = async(req,res) => {
-    try{
-        const updateLang = await Language.findByIdAndUpdate(
-            req.params.id, {$set: req.body}, {new: true}
-        )
-        res.status(200).json(updateLang)
-    }catch(err){
-        res.status(500).json(err)
-    }
-}
+module.exports.deleteLanguage = (req, res) => {
+    let id = req.params.id
+    let promise = LanguageModel.findByIdAndDelete(id).exec()
 
-const languageController = {
-    newLanguage,
-    getAllLanguages,
-    deleteLanguage,
-    updateLanguage
+    promise.then((Language)=>{
+        res.status(200).json(view.render(Language))
+    }).catch((error)=>{
+            res.status(400).json({message: "Language not found", error: error})
+        }
+    )
 }
-
-module.exports = {languageController}
