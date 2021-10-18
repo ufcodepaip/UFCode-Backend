@@ -3,7 +3,6 @@ const cors = require('cors')
 
 const SwaggerUI = require("swagger-ui-express")
 const swaggerJson = require("../swagger.json")
-
 const languageRouter = require("../src/routers/Language")
 const submissionRouter = require("../src/routers/Submission")
 const difficultyRouter = require("../src/routers/Difficulty")
