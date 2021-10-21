@@ -2,7 +2,7 @@ const { spawn } = require('child_process');
 const fs = require('fs').promises
 
 async function invokeSubmission(filePath, inputString, err, success) {
-    const python = spawn('python3', [filePath]);
+    const python = spawn('python', [filePath]);
 
     const inputBuffer = inputString
 
