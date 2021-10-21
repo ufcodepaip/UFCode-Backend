@@ -776,12 +776,11 @@
                             "examples": {
                                 "problem": {
                                     "value": {
-                                        "codeInput": "teste",
-                                        "result": "1234",
-                                        "error": "erro teste",
-                                        "id_problem": "inserir o id",
-                                        "id_language": "inserir o id"
-                                    }
+                                        "codeInput": "value = int(input())\nprint(30)",
+                                        "student_id": "123123",
+                                        "problem_id": "614a6d41ddedeb38d444fa95",
+                                        "language_id": "6111b959ea33a732debb95a2"
+                                      }
                                 }
                             }
                         }
