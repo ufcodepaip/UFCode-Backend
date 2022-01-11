@@ -44,3 +44,12 @@ module.exports.deleteProblem = (req, res) => {
         }
     )
 }
+
+module.exports.findProblemByCourseAndModule = (req,res) => {
+    let promise = ProblemModel.find({'$and':[{courses: {'$in': [req.params.courseId]}}, {modules:{'$in':[req.params.moduleId]}} ]}).populate("courses").populate("modules").exec()
+    promise.then((problem) => {
+        res.status(200).json(view.renderMany(problem))
+    }).catch((error) => {
+        res.status(400).json({message:"error", error: error})
+    })
+}
