@@ -44,7 +44,7 @@ module.exports.createSubmission = async (req, res) => {
                 id_language: submissionBody.language_id,
                 codeInput: filePath,
                 result: resultValidation,
-                error: "sua saída: " + success + " saída esperada: " + problem.expectedOutput + "Diferença na saída exibida pelo programa com a saída esperada. dica, lembre-se de colocar somente input()"
+                error: "sua saída: " + success + "\nsaída esperada: " + problem.expectedOutput + "\nDiferença na saída exibida pelo programa com a saída esperada. \ndica, lembre-se de colocar somente input()"
             })
         }
 
