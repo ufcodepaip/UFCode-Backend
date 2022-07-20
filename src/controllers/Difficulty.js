@@ -24,6 +24,19 @@ module.exports.listDifficulty = (req, res) => {
     })
 }
 
+module.exports.updateDifficulty = (req, res) => {
+    console.log("ta rodando isso aqui?")
+    let id = req.params.id
+    let body = req.body
+    let promise = DifficultyModel.findByIdAndUpdate(id, body, {new: true}).exec()
+    promise.then((Difficulty) => {
+        res.status(200).json(view.render(Difficulty))
+    }).catch((error) => {
+        res.status(400).json({ message: "Difficulty not found", error: error })
+    }
+    )
+}
+
 module.exports.findDifficulty = (req, res) => {
     let id = req.params.id
     let promise = DifficultyModel.findById(id).exec()

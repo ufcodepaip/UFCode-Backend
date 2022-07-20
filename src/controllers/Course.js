@@ -45,3 +45,16 @@ module.exports.deleteCourse = (req, res) => {
         }
     )
 }
+
+module.exports.updateCourse = (req, res) => {
+    console.log("ta rodando isso aqui?")
+    let id = req.params.id
+    let body = req.body
+    let promise = CourseModel.findByIdAndUpdate(id, body, {new: true}).exec()
+    promise.then((course) => {
+        res.status(200).json(view.render(course))
+    }).catch((error) => {
+        res.status(400).json({ message: "course not found", error: error })
+    }
+    )
+}

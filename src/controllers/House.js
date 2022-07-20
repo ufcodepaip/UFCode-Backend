@@ -35,6 +35,19 @@ module.exports.findHouse = (req, res) => {
     )
 }
 
+module.exports.updateHouse = (req, res) => {
+    console.log("ta rodando isso aqui?")
+    let id = req.params.id
+    let body = req.body
+    let promise = HouseModel.findByIdAndUpdate(id, body, {new: true}).exec()
+    promise.then((House) => {
+        res.status(200).json(view.render(House))
+    }).catch((error) => {
+        res.status(400).json({ message: "House not found", error: error })
+    }
+    )
+}
+
 
 module.exports.deleteHouse = (req, res) => {
     let id = req.params.id

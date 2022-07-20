@@ -45,6 +45,19 @@ module.exports.deleteProblem = (req, res) => {
     )
 }
 
+module.exports.updateProblem = (req, res) => {
+    console.log("ta rodando isso aqui?")
+    let id = req.params.id
+    let body = req.body
+    let promise = ProblemModel.findByIdAndUpdate(id, body, {new: true}).exec()
+    promise.then((problem) => {
+        res.status(200).json(view.render(problem))
+    }).catch((error) => {
+        res.status(400).json({ message: "problem not found", error: error })
+    }
+    )
+}
+
 module.exports.findProblemByCourseAndModule = (req, res) => {
     let promise = ProblemModel.find(
         { '$and': [{ courses: { '$in': [req.params.courseId] } }, { modules: { '$in': [req.params.moduleId] } }] })

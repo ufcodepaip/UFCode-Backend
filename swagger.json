@@ -28,8 +28,12 @@
                                         "expectedOutput": "saída esperada",
                                         "id_house": "inserir o id",
                                         "id_difficulty": "inserir o id",
-                                        "courses" : ["inserir os id dos cursos"],
-                                        "modules" : ["inserir os id dos modulos"]
+                                        "courses": [
+                                            "inserir os id dos cursos"
+                                        ],
+                                        "modules": [
+                                            "inserir os id dos modulos"
+                                        ]
                                     }
                                 }
                             }
@@ -39,21 +43,21 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Problem"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Problem"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
-            "get":{
+            "get": {
                 "summary": "Buscar todos os Problemas",
                 "description": "Descrever abaixo as regras de cada campo",
                 "tags": [
@@ -62,26 +66,28 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Problem"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Problem"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             }
         },
-        "/api/problem/{id}":{
+        "/api/problem/{id}": {
             "get": {
                 "summary": "buscar problema por id",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["Problem"],
+                "tags": [
+                    "Problem"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -93,24 +99,26 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Problem"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Problem"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
             "delete": {
                 "summary": "deletar problema por id",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["Problem"],
+                "tags": [
+                    "Problem"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -122,17 +130,75 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Problem"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Problem"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Criar Problema",
+                "description": "Descrever abaixo as regras de cada campo",
+                "tags": [
+                    "Problem"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id para buscar problema",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Problem"
+                            },
+                            "examples": {
+                                "problem": {
+                                    "value": {
+                                        "name": "nome do problema",
+                                        "description": "Descrever o problema",
+                                        "input": "entrada",
+                                        "expectedOutput": "saída esperada",
+                                        "id_house": "inserir o id",
+                                        "id_difficulty": "inserir o id",
+                                        "courses": [
+                                            "inserir os id dos cursos"
+                                        ],
+                                        "modules": [
+                                            "inserir os id dos modulos"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "already exist"
                     }
                 }
             }
@@ -163,21 +229,21 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Course"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Course"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
-            "get":{
+            "get": {
                 "summary": "Buscar todos os cursos",
                 "description": "Descrever abaixo as regras de cada campo",
                 "tags": [
@@ -186,26 +252,75 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Course"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Course"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             }
         },
-        "/api/course/{id}":{
+        "/api/course/{id}": {
+            "put": {
+                "summary": "buscar curso por id",
+                "description": "Descrever abaixo as regras de cada campo",
+                "tags": [
+                    "Course"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id para buscar curso",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Course"
+                            },
+                            "examples": {
+                                "problem": {
+                                    "value": {
+                                        "name": "teste"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Course"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "already exist"
+                    }
+                }
+            },
             "get": {
                 "summary": "buscar curso por id",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["Course"],
+                "tags": [
+                    "Course"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -217,24 +332,26 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Course"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Course"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
             "delete": {
                 "summary": "deletar curso por id ",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["Course"],
+                "tags": [
+                    "Course"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -246,17 +363,17 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Course"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Course"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             }
@@ -287,21 +404,21 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Difficulty"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Difficulty"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
-            "get":{
+            "get": {
                 "summary": "Buscar todas as dificuldades",
                 "description": "Descrever abaixo as regras de cada campo",
                 "tags": [
@@ -310,26 +427,28 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Difficulty"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Difficulty"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             }
         },
-        "/api/difficulty/{id}":{
+        "/api/difficulty/{id}": {
             "get": {
                 "summary": "buscar dificuldade por id",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["Difficulty"],
+                "tags": [
+                    "Difficulty"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -341,24 +460,26 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Difficulty"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Difficulty"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
             "delete": {
                 "summary": "deletar dificuldade por id",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["Difficulty"],
+                "tags": [
+                    "Difficulty"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -370,17 +491,17 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Difficulty"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Difficulty"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             }
@@ -414,21 +535,21 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/House"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/House"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
-            "get":{
+            "get": {
                 "summary": "Buscar todas as casas",
                 "description": "Descrever abaixo as regras de cada campo",
                 "tags": [
@@ -437,26 +558,28 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Problem"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Problem"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             }
         },
-        "/api/house/{id}":{
+        "/api/house/{id}": {
             "get": {
                 "summary": "buscar Casa por ID",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["House"],
+                "tags": [
+                    "House"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -468,24 +591,26 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/House"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/House"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
             "delete": {
                 "summary": "deletar casa por ID",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["House"],
+                "tags": [
+                    "House"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -497,17 +622,17 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/House"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/House"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             }
@@ -538,21 +663,21 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/House"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/House"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
-            "get":{
+            "get": {
                 "summary": "Buscar todas as linguagens",
                 "description": "Descrever abaixo as regras de cada campo",
                 "tags": [
@@ -561,26 +686,28 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Language"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Language"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             }
         },
-        "/api/language/{id}":{
+        "/api/language/{id}": {
             "get": {
                 "summary": "Buscar linguagem por ID",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["Language"],
+                "tags": [
+                    "Language"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -592,24 +719,26 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Language"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Language"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
             "delete": {
                 "summary": "deletar linguagem",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["Language"],
+                "tags": [
+                    "Language"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -621,17 +750,17 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Language"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Language"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             }
@@ -662,21 +791,21 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Module"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Module"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
-            "get":{
+            "get": {
                 "summary": "Buscar todos os módulos",
                 "description": "Descrever abaixo as regras de cada campo",
                 "tags": [
@@ -685,26 +814,28 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Module"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Module"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             }
         },
-        "/api/module/{id}":{
+        "/api/module/{id}": {
             "get": {
                 "summary": "buscar modulo por ID",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["Module"],
+                "tags": [
+                    "Module"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -716,24 +847,26 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Module"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Module"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
             "delete": {
                 "summary": "deletar Module por ID",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["Module"],
+                "tags": [
+                    "Module"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -745,17 +878,17 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Module"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Module"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             }
@@ -780,7 +913,7 @@
                                         "student_id": "123123",
                                         "problem_id": "614a6d41ddedeb38d444fa95",
                                         "language_id": "6111b959ea33a732debb95a2"
-                                      }
+                                    }
                                 }
                             }
                         }
@@ -789,21 +922,21 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Submission"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Submission"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
-            "get":{
+            "get": {
                 "summary": "Buscar todas as submissões",
                 "description": "Descrever abaixo as regras de cada campo",
                 "tags": [
@@ -812,26 +945,28 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Problem"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Problem"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             }
         },
-        "/api/submission/{id}":{
+        "/api/submission/{id}": {
             "get": {
                 "summary": "buscar submissão por id",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["Submission"],
+                "tags": [
+                    "Submission"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -843,24 +978,26 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Submission"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Submission"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             },
             "delete": {
                 "summary": "Deletar submissão por ID",
                 "description": "Descrever abaixo as regras de cada campo",
-                "tags": ["Submission"],
+                "tags": [
+                    "Submission"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -872,17 +1009,17 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content":{
-                            "application/json":{
-                                "schema":{
-                                    "type" : "object",
-                                    "$ref" :"#/components/schemas/Submission"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Submission"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "description" : "already exist"
+                        "description": "already exist"
                     }
                 }
             }
@@ -911,10 +1048,10 @@
                     "id_difficulty": {
                         "type": "string"
                     },
-                    "courses" : {
+                    "courses": {
                         "type": "array"
                     },
-                    "modules" : {
+                    "modules": {
                         "type": "array"
                     }
                 }

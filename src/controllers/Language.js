@@ -22,6 +22,19 @@ module.exports.listLanguage = (req, res) => {
     })
 }
 
+module.exports.updateLanguage = (req, res) => {
+    console.log("ta rodando isso aqui?")
+    let id = req.params.id
+    let body = req.body
+    let promise = LanguageModel.findByIdAndUpdate(id, body, {new: true}).exec()
+    promise.then((Language) => {
+        res.status(200).json(view.render(Language))
+    }).catch((error) => {
+        res.status(400).json({ message: "Language not found", error: error })
+    }
+    )
+}
+
 module.exports.findLanguage = (req, res) => {
     let id = req.params.id
     let promise = LanguageModel.findById(id).exec()

@@ -22,6 +22,19 @@ module.exports.listModule = (req, res) => {
     })
 }
 
+module.exports.updateModule = (req, res) => {
+    console.log("ta rodando isso aqui?")
+    let id = req.params.id
+    let body = req.body
+    let promise = ModuleModel.findByIdAndUpdate(id, body, {new: true}).exec()
+    promise.then((Module) => {
+        res.status(200).json(view.render(Module))
+    }).catch((error) => {
+        res.status(400).json({ message: "Module not found", error: error })
+    }
+    )
+}
+
 module.exports.findModule = (req, res) => {
     let id = req.params.id
     let promise = ModuleModel.findById(id).exec()
