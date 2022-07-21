@@ -14,7 +14,7 @@ module.exports.createProblem = (req, res) => {
 
 
 module.exports.listProblem = (req, res) => {
-    let promise = ProblemModel.find().populate("id_house").populate("courses").populate("modules").exec()
+    let promise = ProblemModel.find().populate("id_house").populate("id_difficulty").populate("courses").populate("modules").exec()
     promise.then((problem) => {
         res.status(200).json(view.renderMany(problem))
     }).catch((error) => {
