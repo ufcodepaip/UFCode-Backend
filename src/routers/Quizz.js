@@ -2,9 +2,9 @@ let controller = require("../controllers/Quizz.js")
 
 module.exports = (app) => {
 
-    app.get("/api/Quizz", controller.listQuizz)
-    app.get("/api/Quizz/:id", controller.findQuizz)
-    app.post("/api/Quizz", controller.createQuizz)
-    app.delete("/api/Quizz/:id", controller.deleteQuizz)
+    app.get("/api/quizz", controller.listQuizz)
+    app.get("/api/quizz/:id", controller.findQuizz)
+    app.post("/api/quizz", controller.createQuizz)
+    app.delete("/api/quizz/:id", controller.deleteQuizz)
 
 }
