@@ -25,6 +25,10 @@ const QuizzSchema = new Schema({
     option_correct: {
         type: String,
         required: true
+    },
+    modules: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Module'
     }
 })
 

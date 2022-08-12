@@ -6,7 +6,8 @@ const render = (quizz) => {
         option_two :  quizz.option_two,
         option_three :  quizz.option_three,
         option_four :  quizz.option_four,
-        option_correct :  quizz.option_correct
+        option_correct :  quizz.option_correct,
+        modules: quizz.modules
 
     }
 }
