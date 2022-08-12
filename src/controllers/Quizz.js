@@ -13,7 +13,7 @@ module.exports.createQuizz = (req, res) => {
 }
 
 module.exports.listQuizz = (req, res) => {
-    let promise = QuizzModel.find().exec()
+    let promise = QuizzModel.find().populate("modules").exec()
 
     promise.then((quizzBody)=>{
         res.status(200).json(view.renderMany(quizzBody))
